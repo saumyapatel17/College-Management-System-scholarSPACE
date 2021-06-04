@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../public/images/apple-icon.png">
+  <link rel="icon" type="image/png" href="../public/images/favicon.png">
+  <title>
+    scholarSPACE
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../public/css/soft-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+  <style>
+    .announcement-navbar {
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show  bg-gray-100">
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-left ms-3"
+    id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none"
+        aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href="/student_home">
+        <img src="../public/images/graduation-cap.png" class="navbar-brand-img h-100 w-15" alt="...">
+        <span class="ms-1 font-weight-bold">scholarSPACE</span>
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0">
+    <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link  " href="/student_home">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/home-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/student_calendar">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/calendar-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Event Calendar</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  active" href="/student_workspace">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/workspace-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Workspace</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/student_events">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/events-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Events</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/student_groups">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/groups-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Groups</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <main class="main-content mt-1 border-radius-lg">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+      navbar-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <!-- Left Navbar -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a
+                href="/student_workspace">Workspace</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{{#each
+              Project}}{{this.project_name}}{{/each}}</li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Workspace</h6>
+        </nav>
+        <!-- End Left Navbar -->
+        <!-- Right Navbar -->
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
+          <!-- list of elements -->
+          <ul class="navbar-nav  justify-content-end">
+            <!-- Profile -->
+            <li class="nav-item d-flex align-items-center">
+              <a href="/student_profile" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                {{#each Data}}
+                <span class="d-sm-inline d-none">{{this.username}}</span>
+                {{/each}}
+              </a>
+            </li>
+            <!-- End Profile -->
+            <!-- Responsive hamburger lines -->
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+            <!-- End Responsive hamburger lines -->
+            <!-- Announcements -->
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Announcements">
+                <i type="button" class="fa fa-bell cursor-pointer fixed-plugin-button-nav cursor-pointer"></i>
+              </a>
+            </li>
+            <!-- End Announcements -->
+            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="/" class="nav-link text-body p-0" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Log out">
+                <i class="fa fa-sign-out cursor-pointer"></i>
+              </a>
+            </li>
+          </ul>
+          <!-- End list of elements -->
+        </div>
+        <!-- End Right Navbar -->
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="page-header min-height-300 border-radius-xl mt-1"
+        style="background-image: url('../public/images/curved-images/curved0.jpg'); background-position-y: 50%;">
+        <span class="mask bg-gradient-primary opacity-6"></span>
+      </div>
+      <div class="card card-body blur shadow-blur mx-4 mt-n6">
+        <div class="row gx-4">
+          <div class="col-auto">
+            <div class="avatar avatar-xl position-relative">
+            </div>
+          </div>
+          <div class="col-auto my-auto">
+            <div class="h-100">
+              {{#each Project}}
+              <h5 class="mb-1">
+                {{this.project_name}}
+              </h5>
+              <p class="mb-0 font-weight-bold text-sm">
+                {{this.evaluator}}
+              </p>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      {{#each Evaluation}}
+      <p>{{this.project_desc}}</p>
+      <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-1"><i class="fas fa-paperclip text-lg me-1"></i><a
+          href="/uploads/{{this.file}}" download> Submitted File </a></button>
+      {{/each}}
+      <div class="card mt-4 mb-4">
+        <div class="card-body p-3">
+          <form>
+            <div class="row">
+              {{#each Group}}
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Course code</label>
+                  <input type="text" class="form-control" value="{{this.course_code}}" id="recipient-name">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Group Name</label>
+                  <input type="text" class="form-control" value="{{this.group_name}}" id="recipient-name">
+                </div>
+              </div>
+              {{/each}}
+            </div>
+            {{#each Project}}
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-date-input" class="form-control-label">Assigned Date</label>
+                  <input class="form-control" type="text" value="{{this.assigned_date}}" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-date-input" class="form-control-label">Deadline</label>
+                  <input class="form-control" type="text" value="{{this.deadline}}" required>
+                </div>
+              </div>
+              {{/each}}
+              {{#each Evaluation}}
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-date-input" class="form-control-label">Submission Date</label>
+                  <input class="form-control" type="text" value="{{this.submission_date}}" required>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+            {{#each Project}}
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Evaluator name</label>
+                  <input type="text" class="form-control" value="{{this.evaluator}}" id="recipient-name">
+                </div>
+              </div>
+              {{/each}}
+              {{#each Evaluation}}
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Marks</label>
+                  <input type="number" class="form-control" value="{{this.marks}}" id="recipient-name">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Feedback</label>
+                  <input type="text" class="form-control" value="{{this.feedback}}" id="project-desc">
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mb-lg-0 mb-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h6>Members</h6>
+                </div>
+                <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><button type="button" class="btn btn-block btn-default mb-3" data-toggle="modal"
+                          data-target="#addmember">
+                          Add</button></li>
+                      <li><button type="button" class="btn btn-block btn-default mb-3" data-toggle="modal"
+                          data-target="#removemember">
+                          Remove</button></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="addmember" tabindex="-1" role="dialog" aria-labelledby="addmembertitle"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel"
+                      style="text-align: center; text-transform: uppercase;">Add a member</h4>
+                  </div>
+                  <div class="modal-body">
+                    {{#if message}}
+                    <div class="alert {{messageClass}}" role="alert">
+                      {{message}}
+                    </div>
+                    {{/if}}
+                    <form action="/auth/student_addMember" method="POST">
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name</label>
+                        <input type="text" class="form-control" placeholder="Name" name="name" id="name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Roll No.</label>
+                        <input type="text" class="form-control" placeholder="Roll no." name="roll_no" id="roll_no"
+                          required>
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Role</label>
+                        <input type="text" class="form-control" placeholder="Role of member" name="role" id="role"
+                          required>
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Contribution</label>
+                        <input type="text" class="form-control" placeholder="Mention contribution" name="contribution"
+                          id="contribution" required>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn bg-gradient-primary">Add</button>
+                        <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="removemember" tabindex="-1" role="dialog" aria-labelledby="removemembertitle"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel"
+                      style="text-align: center; text-transform: uppercase;">Remove a member</h4>
+                  </div>
+                  <div class="modal-body">
+                    {{#if message}}
+                    <div class="alert {{messageClass}}" role="alert">
+                      {{message}}
+                    </div>
+                    {{/if}}
+                    <form action="/auth/student_removeMember" method="POST">
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name</label>
+                        <input type="text" class="form-control" placeholder="Name" name="name" id="name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Roll No.</label>
+                        <input type="text" class="form-control" placeholder="Roll no." name="roll_no" id="roll_no"
+                          required>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn bg-gradient-primary">Remove</button>
+                        <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                        style="padding-left:60px; width: 10%">Name</th>
+                      <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                        style="width:10%">Role</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                        style="width:15%">
+                        Contribution</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each Member}}
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <i class="fas fa-user"></i>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-3 text-sm" style="padding-left: 24px">{{this.name}}</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0">{{this.role}}</p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0">{{this.contribution}}</p>
+                      </td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-4">
+          <div class="card h-100">
+            <div class="card-header pb-0 p-3">
+              <h6 class="mb-0">Project status</h6>
+            </div>
+            <div class="card-body p-3">
+              <h6 class="text-uppercase text-body text-xs font-weight-bolder">Progress</h6>
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                      for="flexSwitchCheckDefault">Working</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                      for="flexSwitchCheckDefault1">Pending</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                      for="flexSwitchCheckDefault2">Delayed</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                      for="flexSwitchCheckDefault2">Submitted</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                      for="flexSwitchCheckDefault2">Not Submitted</label>
+                  </div>
+                </li>
+              </ul>
+              <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Evaluation</h6>
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault3">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                      for="flexSwitchCheckDefault3">Individual</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault4" checked>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+                      for="flexSwitchCheckDefault4">Group</label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fixed-plugin">
+      <div class="card shadow-lg">
+        <div class="announcement-navbar">
+          <div class="card-header pb-0 pt-3">
+            <div class="float-start">
+              <h6>Recent Updates</h6>
+            </div>
+            <div class="float-end mt-4">
+              <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                <i class="fa fa-close"></i>
+              </button>
+            </div>
+            <!-- End Toggle Button -->
+          </div>
+          <hr class="horizontal dark my-1">
+          <div class="card-body p-3"></div>
+          {{#each announcement}}
+          <div class="card-body p-3">
+            <div class="d-flex py-1">
+              <div class="my-auto">
+                <i class="fas fa-envelope-open-text me-3 "></i>
+              </div>
+              <div class="d-flex flex-column justify-content-center">
+                <h6 class="text-sm font-weight-normal mb-1">
+                  <span class="font-weight-bold">{{this.description}}</span>
+                  <br>
+                  {{this.created_by}}
+                </h6>
+                <p class="text-xs text-secondary mb-0">
+                  <i class="fa fa-clock me-1"></i>
+                  {{this.created_on}}
+                </p>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="../public/js/popper.min.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="../public/js/smooth-scrollbar.min.js"></script>
+    <script src="../public/js/soft-ui-dashboard.min.js?v=1.0.1"></script>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      }
+    </script>
+</body>
+
+</html>

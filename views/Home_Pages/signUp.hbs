@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sign Up</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="/public/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css"
+		href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<!-- Main Style Css -->
+	<link rel="stylesheet" href="/public/css/style_signUp.css" />
+</head>
+
+<body>
+	<script type="text/javascript" src="/public/js/countries.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<div class="form-v10">
+		<div class="page-content">
+			<div class="form-v10-content">
+				<img src="/public/images/image-1.png" alt="" class="image-1">
+				{{#if message}}
+				<div class="alert {{messageClass}}" role="alert">
+					{{message}}
+				</div>
+				{{/if}}
+				<form class="form-detail" action="/auth/signUp" method="POST" id="myform">
+					<div class="form-left">
+						<h2><strong>GENERAL</strong> INFORMATION</h2>
+						<div class="form-row">
+							<input type="text" name="institution_code" class="institution_code" id="institution_code"
+								placeholder="Institution Code" required>
+						</div>
+						<div class="form-row">
+							<select name="title" required>
+								<option class="option" value="">Who are you?</option>
+								<option class="option" value="student">Student</option>
+								<option class="option" value="teacher">Teacher</option>
+							</select>
+							<span class="select-btn">
+								<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+						<div class="form-group">
+							<div class="form-row form-row-1">
+								<input type="text" name="first_name" id="first_name" class="input-text"
+									placeholder="First Name" required>
+							</div>
+							<div class="form-row form-row-2">
+								<input type="text" name="last_name" id="last_name" class="input-text"
+									placeholder="Last Name" required>
+							</div>
+						</div>
+						<div class="form-row">
+							<input type="text" name="username" class="username" id="username" placeholder="Username"
+								pattern="^[A-Za-z]\\w{5, 15}$" required>
+							<p style="font-weight: 300; font-size:0.8rem; padding: 0px 0px 0px 18px">Must contain only
+								alphanumeric characters and underscore, inclusive of 6 to 16 characters.</p>
+						</div>
+						<div class="form-group">
+							<div class="form-row form-col-1">
+								<input type="password" name="password" id="password" class="input-text"
+									pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required>
+								<p style="font-weight: 300; font-size:0.8rem; padding: 0px 0px 0px 18px">Must contain at
+									least one number and one uppercase and lowercase letter, and at least 8 or more
+									characters.</p>
+							</div>
+							<div class="form-row form-col-2">
+								<i toggle="#password-field"
+									class="fa fa-fw fa-eye-slash field_icon toggle-password"></i>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-row form-col-1">
+								<input type="password" name="confirmPassword" id="confirmPassword" class="input-text"
+									placeholder="Confirm Password" required>
+								<p class="registrationFormAlert"
+									style="font-weight: 300; font-size:0.8rem; padding: 0px 0px 0px 18px; "
+									id="CheckPasswordMatch"></p>
+							</div>
+							<div class="form-row form-col-2">
+								<i toggle="#confirmPassword-field"
+									class="fa fa-fw fa-eye-slash field_icon toggle-confirmPassword"></i>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-row form-row-3">
+								<input type="text" onfocus="(this.type='date')" name="dob" class="dob" id="dob"
+									placeholder="Date of Birth" required>
+							</div>
+							<div class="form-row form-row-4">
+								<select name="gender" required>
+									<option value="">Gender</option>
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+									<option value="other">Other</option>
+								</select>
+								<span class="select-btn">
+									<i class="zmdi zmdi-chevron-down"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-right">
+						<h2><strong>CONTACT</strong> DETAILS</h2>
+						<div class="form-row">
+							<input type="text" name="address" class="street" id="address" placeholder="Address"
+								required>
+						</div>
+						<div class="form-row">
+							<select id="country" name="country"></select>
+							<span class="select-btn">
+								<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+						<div class="form-group">
+							<div class="form-row form-row-1">
+								<input type="text" name="zip" class="zip" id="zip" pattern="[0-9]{6}"
+									placeholder="Zip Code" required>
+							</div>
+							<div class="form-row form-row-2">
+								<select name="state" id="state"></select>
+								<span class="select-btn">
+									<i class="zmdi zmdi-chevron-down"></i>
+								</span>
+							</div>
+						</div>
+						<div class="form-row">
+							<input type="tel" name="phone" class="phone" id="phone" pattern="[0-9]{10}"
+								placeholder="Contact" required>
+						</div>
+						<div class="form-row" style="margin-bottom: 70px;">
+							<input type="email" name="email" id="your_email" class="input-text" required
+								placeholder="Email">
+						</div>
+						<br><br>
+						<div class="form-checkbox">
+							<label class="container">
+								<input type="checkbox" name="checkbox" id="checkbox" required>
+								<label for="checkbox" style="color: #fff; margin-left:27px;">I accept all <a href="#"
+										class="text">Terms and Conditions</a> of your site.</label>
+								<span class="checkmark"></span>
+							</label>
+						</div>
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="SIGN UP">
+						</div>
+					</div>
+				</form>
+				<img src="/public/images/image-2.png" alt="" class="image-2">
+			</div>
+		</div>
+	</div>
+	<script src="/public/js/main_signUp.js"></script>
+	<script language="javascript">
+		populateCountries("country", "state");
+	</script>
+</body>
+
+</html>

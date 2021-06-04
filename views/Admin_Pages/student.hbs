@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../public/images/apple-icon.png">
+  <link rel="icon" type="image/png" href="../public/images/favicon.png">
+  <title>
+    scholarSPACE
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="../public/css/nucleo-icons.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../public/css/soft-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+  <style>
+    .announcement-navbar {
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show  bg-gray-100">
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-left ms-3"
+    id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none"
+        aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href="/admin_home">
+        <img src="../public/images/graduation-cap.png" class="navbar-brand-img h-100 w-15" alt="...">
+        <span class="ms-1 font-weight-bold">scholarSPACE</span>
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0">
+    <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " href="/admin_home">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/home-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/admin_calendar">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/calendar-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Event Calendar</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/admin_announcement">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/announcement-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Announcement</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/admin_events">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/events-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Events</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link   active" href="/admin_student">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/student-white.png">
+            </div>
+            <span class="nav-link-text ms-1">Student</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/admin_teacher">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/teacher-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Teacher</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/admin_course">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/course-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Course</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/admin_subscription">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img src="../public/images/subscription-black.png">
+            </div>
+            <span class="nav-link-text ms-1">Subscription</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <main class="main-content mt-1 border-radius-lg">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+      navbar-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <!-- Left Navbar -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Student</li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Student</h6>
+        </nav>
+        <!-- End Left Navbar -->
+        <!-- Right Navbar -->
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
+          <!-- list of elements -->
+          <ul class="navbar-nav  justify-content-end">
+            <!-- Profile -->
+            <li class="nav-item d-flex align-items-center">
+              <a href="/admin_profile" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                {{#each Data}}
+                <span class="d-sm-inline d-none">{{this.username}}</span>
+                {{/each}}
+              </a>
+            </li>
+            <!-- End Profile -->
+            <!-- Responsive hamburger lines -->
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+            <!-- End Responsive hamburger lines -->
+            <li class="nav-item px-3 d-flex align-items-center">
+            </li>
+            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="/" class="nav-link text-body p-0" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Log out">
+                <i class="fa fa-sign-out cursor-pointer"></i>
+              </a>
+            </li>
+          </ul>
+          <!-- End list of elements -->
+        </div>
+        <!-- End Right Navbar -->
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="page-header min-height-300 border-radius-xl mt-1"
+        style="background-image: url('../public/images/curved-images/curved0.jpg'); background-position-y: 50%;">
+        <span class="mask bg-gradient-primary opacity-6"></span>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-text"><i class="fas fa-search"></i></span>
+        <input type="text" class="form-control" placeholder="Search" onkeyup="myFunction()" id="myInput">
+        <div class="row">
+          <div class="col-md-12" style="margin:0px; padding:0px;">
+            <select class="form-control btn btn-outline-primary mb-0 " name="search-filter" id="search-filter"
+              placeholder="Departure">
+              <option selected="">Search By</option>
+              <option>Name</option>
+              <option>Enrollment No</option>
+              <option>Degree</option>
+              <option>Branch</option>
+              <option>Batch</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-lg-6 col-7">
+              <h6>Student</h6>
+            </div>
+            <div class="col-lg-6 col-5 my-auto text-end">
+              <div class="dropdown float-lg-end pe-4">
+                <a class="cursor-pointer" id="dropdownTable" data-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-ellipsis-v text-secondary"></i>
+                </a>
+                <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                  <li><button type="button" class="btn btn-block btn-default mb-3" data-toggle="modal"
+                      data-target="#updateteacher">
+                      Update</button></li>
+                  <li><button type="button" class="btn btn-block btn-default mb-3" data-toggle="modal"
+                      data-target="#removeteacher">
+                      Remove</button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="updateteacher" tabindex="-1" role="dialog" aria-labelledby="updatemembertitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel" style="text-align: center; text-transform: uppercase;">
+                  Update student</h4>
+              </div>
+              <div class="modal-body">
+                {{#if message}}
+                <div class="alert {{messageClass}}" role="alert">
+                  {{message}}
+                </div>
+                {{/if}}
+                <form action="/auth/admin_updateStudent" method="POST">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Name</label>
+                    <input type="text" class="form-control"
+                      placeholder="Name (will not be updated, only student can update it)" name="name" id="name"
+                      required>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Roll No.</label>
+                    <input type="text" class="form-control"
+                      placeholder="Roll no. (will not be updated, only student can update it)" name="roll_no"
+                      id="roll_no" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="name@example.com" name="email" id="email"
+                      required>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Contact</label>
+                    <input type="tel" placeholder="40-(770)-888-444" class="form-control" name="contact" id="contact"
+                      required>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Credits</label>
+                        <input type="number" class="form-control" placeholder="10" name="credits" id="credits" required>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">GPA</label>
+                        <input type="decimal" step="0.0001" class="form-control" placeholder="10" name="gpa" id="gpa"
+                          required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Branch</label>
+                    <input type="text" class="form-control" placeholder="Branch" name="branch" id="branch" required>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn bg-gradient-primary">Update</button>
+                    <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="removeteacher" tabindex="-1" role="dialog" aria-labelledby="removemembertitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel" style="text-align: center; text-transform: uppercase;">
+                  Remove student</h4>
+              </div>
+              <div class="modal-body">
+                {{#if message}}
+                <div class="alert {{messageClass}}" role="alert">
+                  {{message}}
+                </div>
+                {{/if}}
+                <form action="/auth/admin_removeStudent" method="POST">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Name" name="name" id="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Roll No.</label>
+                    <input type="text" class="form-control" placeholder="Roll no." name="roll_no" id="roll_no" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="name@example.com" name="email" id="email"
+                      required>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn bg-gradient-primary">Remove</button>
+                    <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0" id="myTable">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    style="padding-left: 65px;width: 18%;">Name</th>
+                  <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:11%;">Roll No.</th>
+                  <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:16%;">Email</th>
+                  <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:9%;"> Contact</th>
+                  <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:7%;">Gender</th>
+                  <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:10%;">Date of Birth</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:7%;">Credits</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:4%;">GPA</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:10%;">Degree</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:10%;">Branch</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                    style="width:5%;">Batch</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each Student}}
+                <tr>
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div>
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-3 text-sm" style="padding-left: 24px">{{this.fname}} {{this.lname}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.enrollment_no}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.email}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.contact}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.gender}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.dob}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.credits}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.gpa}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.degree}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.branch}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{this.batch}}</p>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--   Core JS Files   -->
+      <script src="../public/js/popper.min.js"></script>
+      <script src="../public/js/bootstrap.min.js"></script>
+      <script src="../public/js/smooth-scrollbar.min.js"></script>
+      <script src="../public/js/soft-ui-dashboard.min.js?v=1.0.1"></script>
+      <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+      <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+          var options = {
+            damping: '0.5'
+          }
+          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+      </script>
+      <script>
+        function myFunction() {
+          var input, filter, table, tr, td, i, txtValue, search;
+          search = document.getElementById('search-filter');
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            if (search.value == "Name") {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            } else if (search.value == "Enrollment No") {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            } else if (search.value == "Degree") {
+              td = tr[i].getElementsByTagName("td")[8];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            } else if (search.value == "Branch") {
+              td = tr[i].getElementsByTagName("td")[9];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            } else if (search.value == "Batch") {
+              td = tr[i].getElementsByTagName("td")[10];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            } else {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+        }
+      </script>
+</body>
+
+</html>

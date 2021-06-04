@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Get Started, Register</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="/public/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css"
+		href="/public/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<!-- Main Style Css -->
+	<link rel="stylesheet" href="/public/css/style_getStarted.css">
+</head>
+
+<body>
+	<script type="text/javascript" src="/public/js/countries.js"></script>
+	<div class="page-content">
+		<div class="form-v1-content">
+			<div class="wizard-form">
+				<img src="/public/images/image-1.png" alt="" class="image-1">
+				{{#if message}}
+				<div class="alert {{messageClass}}" role="alert">
+					{{message}}
+				</div>
+				{{/if}}
+				<form class="form-register" action="/auth/get_started" method="POST">
+					<div id="form-total">
+						<!-- SECTION 1 -->
+						<h2>
+							<p class="step-icon"><span>01</span></p>
+							<span class="step-text">Personal Infomation</span>
+						</h2>
+						<section>
+							<div class="inner">
+								<div class="wizard-header">
+									<h3 class="heading"><strong>PERSONAL</strong> INFORMATION</h3>
+									<p>Please enter your infomation and proceed to the next step so we can build your
+										accounts. </p>
+									<br>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="text" class="form-control" id="first-name" name="first_name"
+											placeholder="First Name" required>
+									</div>
+									<div class="form-holder">
+										<input type="text" class="form-control" id="last-name" name="last_name"
+											placeholder="Last Name" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="email" name="email" id="email" class="form-control"
+											placeholder="Email" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="tel" class="form-control" id="phone" name="phone"
+											pattern="[0-9]{10}" placeholder="Phone Number" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="text" class="form-control" id="username" name="username"
+											placeholder="Username" pattern="^[A-Za-z]\\w{5, 15}$" required>
+										<p style="font-weight: 300;">Must contain only alphanumeric characters and
+											underscore, inclusive of 6 to 16 characters.</p>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="password" class="form-control" id="password" name="password"
+											placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+											style="width: 785px" required>
+										<i toggle="#password-field"
+											class="fa fa-fw fa-eye-slash field_icon toggle-password"></i>
+										<p style="font-weight: 300;">Must contain at least one number and one uppercase
+											and lowercase letter, and at least 8 or more characters.</p>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="password" class="form-control" id="confirmPassword"
+											name="confirmPassword" placeholder="Confirm Password" style="width: 785px"
+											required>
+										<i toggle="#confirmPassword-field"
+											class="fa fa-fw fa-eye-slash field_icon toggle-confirmPassword"></i>
+										<p class="registrationFormAlert"
+											style="font-weight: 300; font-size:0.8rem; padding: 0px 0px 0px 44px; "
+											id="CheckPasswordMatch"></p>
+									</div>
+								</div>
+							</div>
+							<button class="btn btn-2 btn-2i">Check</button>
+						</section>
+						<!-- SECTION 2 -->
+						<h2>
+							<p class="step-icon"><span>02</span></p>
+							<span class="step-text">Institution Details</span>
+						</h2>
+						<section>
+							<div class="inner">
+								<div class="wizard-header">
+									<h3 class="heading"><strong>INSTITUTION</strong> DETAILS</h3>
+									<p>Please enter your infomation and proceed to the next step so we can build your
+										accounts.</p>
+									<br>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="text" class="form-control" id="institution_name"
+											name="institution_name" placeholder="Institution Name" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="text" class="form-control" id="institution_code"
+											name="institution_code" pattern="^[A-Za-z]\\w{5, 15}$"
+											placeholder="Institution Unique Code" required>
+										<p style="font-weight: 300;">Must contain only alphanumeric characters and
+											underscore, inclusive of 6 to 16 characters.</p>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="text" class="form-control" id="description" name="description"
+											placeholder="Description" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="text" class="form-control" id="address" name="address"
+											placeholder="Address" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="text" class="form-control" id="country" name="country"
+											placeholder="Country" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="text" class="form-control" id="zip" name="zip"
+											placeholder="Zip Code" pattern="[0-9]{6}" required>
+									</div>
+									<div class="form-holder">
+										<input type="text" class="form-control" id="state" name="state"
+											placeholder="State" required>
+									</div>
+								</div>
+							</div>
+							<button class="btn btn-2 btn-2i">Check</button>
+						</section>
+						<!-- SECTION 3 -->
+						<h2>
+							<p class="step-icon"><span>03</span></p>
+							<span class="step-text">Payment Details</span>
+						</h2>
+						<section>
+							<div class="inner">
+								<div class="wizard-header">
+									<h3 class="heading"><strong>PAYMENT</strong> DETAILS</h3>
+									<p>Please enter your infomation and proceed to the next step so we can build your
+										accounts.</p>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<select type="text" id="plan_name" name="plan_name" style="border-bottom: 1px solid #ccc; border-top:0px; border-left:0px; border-right:0px; width: 790px;
+										font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight:400;">
+											<option value="">Choose your plan</option>
+											<option>Basic</option>
+											<option>Standard</option>
+											<option>Premium</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<select type="text" id="plan_duration" name="plan_duration" style="border-bottom: 1px solid #ccc; border-top:0px; border-left:0px; border-right:0px; width: 790px;
+										font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight:400;">
+											<option value="">Plan Duration</option>
+											<option>1 month</option>
+											<option>6 months</option>
+											<option> 1 year</option>
+											<option> 2 years</option>
+											<option> 5 years</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="text" onfocus="(this.type='date')" class="form-control"
+											id="start_date" name="start_date" placeholder="Start Date" required>
+									</div>
+									<div class="form-holder">
+										<input type="text" onfocus="(this.type='date')" class="form-control"
+											id="end_date" name="end_date" placeholder="End Date">
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<input type="number" step="0.0001" class="form-control" id="amount"
+											name="amount" placeholder="Billing Amount  (in Rs.)" required>
+									</div>
+								</div>
+								<button class="btn btn-2 btn-2g"
+									style="width: 272px;height: 50px;font-size: 18px;font-weight: 500;color:#fff;padding: 0px 0px 0px 0px;margin: 15px 30px 7px 287px;">Proceed
+									Payment</button>
+								<p style="color: #3e4061; font-weight: 300;">By submitting the form, you agree to our
+									Terms of Services.</p>
+								<br>
+							</div>
+							<button class="btn btn-2 btn-2i" style="margin: 0px 0px 0px 96px;">Check</button>
+							<button type="submit" class="btn btn-2 btn-2g"
+								style="width: 272px;height: 50px;font-size: 18px;font-weight: 500;color:#fff;padding: 0px 0px 0px 0px;margin: 15px 30px 15px 150px;">Register</button>
+						</section>
+					</div>
+				</form>
+				<img src="/public/images/image-2.png" alt="" class="image-2">
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script language="javascript">
+		populateCountries("country", "state");
+	</script>
+	<script src="/public/js/jquery-3.3.1.min.js"></script>
+	<script src="/public/js/jquery.steps.js"></script>
+	<script src="/public/js/main_getStart.js"></script>
+	<script>
+		var plan = document.getElementById('plan_name');
+		var duration = document.getElementById('plan_duration');
+		var start = document.getElementById('start_date');
+		var end = document.getElementById('end_date');
+		var bill = document.getElementById('amount');
+
+		start.onchange = function () {
+			if (duration.value == "1 month") {
+				var nbdays = 30
+
+			} else if (duration.value == "6 months") {
+				var nbdays = 180
+
+			} else if (duration.value == "1 year") {
+				var nbdays = 360
+
+			} else if (duration.value == "2 years") {
+				var nbdays = 720
+			} else {
+				var nbdays = 1800
+			}
+			var startDt = start.value;
+			var dat = new Date(startDt);
+			dat.setDate(dat.getDate() + nbDays)
+			end.value(dat)
+
+			if (plan.value == "Basic") {
+				var amnt = 20 * int(nbdays)
+				bill.value = amnt.value
+			}
+			else if (plan.value == "Premium") {
+				var amnt = 90 * int(nbdays)
+				bill.value = amnt.value
+			} else {
+				var amnt = 190 * int(nbdays)
+				bill.value = amnt.value
+			}
+		}
+	</script>
+</body>
+
+</html>
